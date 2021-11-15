@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h1>Data Perjalanan</h1>
+
+<h2>Tabel Penumpang</h2>
+
+<table>
+  <tr>
+    <th>ID Penumpang</th>
+    <th>Nama</th>
+    <th>Nomor Telepon</th>
+    <th>Alamat</th>
+  </tr>
+  <div th:each="penumpang : ${listPenumpang}">
+	  <tr>
+	    <td> <span th:text = ${penumpang.id_penumpang} /></td>
+	    <td> <span th:text = ${penumpang.nama} /></td>
+	    <td> <span th:text = ${penumpang.no_telp} /></td>
+	    <td> <span th:text = ${penumpang.alamat} /></td>
+	  </tr>
+  </div>
+</table>
+
+<h2>Tabel Travel</h2>
+
+<table>
+  <tr>
+    <th>ID Travel</th>
+    <th>Nama Supir</th>
+    <th>Nomor Telepon</th>
+    <th>Alamat</th>
+     <th>Nomor Polisi</th>
+  </tr>
+  <div th:each="travel : ${listTravel}">
+	  <tr>
+	    <td> <span th:text = ${travel.id_travel} /></td>
+	    <td> <span th:text = ${travel.nama_supir} /></td>
+	    <td> <span th:text = ${travel.no_telp} /></td>
+	    <td> <span th:text = ${travel.alamat} /></td>
+	    <td> <span th:text = ${travel.no_polisi} /></td>
+	  </tr>
+  </div>
+</table>
+
+<h2>Tabel Tiket</h2>
+
+<table>
+  <tr>
+    <th>ID </th>
+    <th>ID Penumpang</th>
+    <th>ID Travel</th>
+    <th>Jadwal</th>
+  </tr>
+  <div th:each="tiket : ${listTiket}">
+	  <tr>
+	    <td> <span th:text = ${tiket.id} /></td>
+	    <td> <span th:text = ${tiket.id_penumpang.id_penumpang} /></td>
+	    <td> <span th:text = ${tiket.id_travel.id_travel} /></td>
+	    <td> <span th:text = ${tiket.jadwal} /></td>
+	  </tr>
+  </div>
+</table>
+
+</body>
+</html>
+
